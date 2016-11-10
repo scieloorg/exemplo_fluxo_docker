@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+    flapp_mongo:
+        image: mongo
+        restart: always
+        ports:
+          - "27017:27017"
+        hostname: flapp-mongo
+
+    flapp_webapp:
+        build:
+            context: .
+            dockerfile: ./Dockerfile-dev
+        volumes:
+            - .:/app
+        restart: always
+        links:
+            - flapp_mongo:flapp-mongo
+        ports:
+            - "8000:8000"
+        hostname: flapp-app
+        environment:
+            - MONGODB_HOST=flapp_mongo
+            - MONGODB_NAME=flapp_db_dev
+            - DEBUG_MODE=True
+            - SECRET_KEY=example
