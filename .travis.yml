@@ -1,7 +1,6 @@
 sudo: required
 language: python
 env:
-  DOCKER_COMPOSE_VERSION: 1.9.0
   global:
   - secure: eV+M044ma2BRrnN3hnES6kjRrPcDkAfWn1pfCKWnPubTpPHcYUF9QhaP70DKuXvq8BWeh7vxG94na+HicPuicRKGsHA0/NFdL2gfQo3K2KNVYXujgFztKE1JqxvKJc6C9k9BPL9TkyjLe7ggVLDKOn3CkkNclh901N19AjqqWWLytlTh42eezsB96Wk0QXbYtZI94V1abGN9ACE/PlFtl+kLWzhWkAjmHl2eRu8oFOigBuBUajceiYmTaY/3aeRJ+S5Owl59EcVjxHASER3Z//853moCzZla6KlPvZjs98N9mVTgHEePKFatNuboDqwlw8E5VUWyhOVZOAEWs6QcrxH7axtO4WGMhvgl0eSo0N6FZiJBWD61LujC4Rco0GMcHLL9D/vzxIry1yvOVPopM0xLrvLgtGzrLFJfFHdxpLvPWcbmc6rzlsVxNlbCg1WMKXTmUY9AWy0sD8gKh4HW7rk4bNpg3lLkaEqUxIiFHy5xy4VY5dclXDT1nmP19I4mbgu/n2L6tgTje5LbTcI/kXaO8BN5A+D1MNDwLPA5NjHqW7sJrWlP8japZAPhpmMLKizpuBVb7M+PvqUkZlxtgwVBrhNtDyF22MkoNtXneMfRQU7Hfh+Xw3y3S5NWLF8rjRFHMdkml7+HZiIj7+Ll5BvkRsdynbUjsT36p2IOjOs=
   - secure: J1z6tVHmq+pidEaYfNUpwg8WBvAP/9atQBXJOL39OUGZD4trt6kejOLy7sW5HfZoJHTxKPSdVD5CYLaaRebPPbM1vXClHJE0u3l4rCpuMFuSQ/4J2env/st6P4cgcY4kPd9q9jqA7v3kDGBuoqDfXzKGMVm/zPyH36eUVlz9p/OhBeV9ZKtxAP9QdV0tOHiCfnkebLvHBsfvIKYud55Dpwq9bD6R5Tu+8lIjas/DfbWdA1kvYmtN2Uni4bchYEQnLD1s+USvEPj9UN5qNQhufT/0ZQVED8i5KqFndarb4t22tQNNei5kyOWvYjeaYpoIJVggHK3jL7MMHQmhsdtBXbCSD0D6NFGUzkVVMWZrzleMuowGXtHko6TWbPNIWaZrTiCcGYzCNJ7nUiuTNTDORjnpSC6/2JOXU8N1CXeOpKAWv+JkATvN1lJfhPLtq35XnpqOER/DF/OnNAlQDUzt5+m24OU6Hwl5/ylihiGoBclWzZkmxVhrAmxP+vuXDkVl8anYl/hszOhWzv9YotVGGPNn+faSysp7zgfEzf8oKgKIsDBAapSUzYH/sElnSK3NSv5sasLFReUIflcO7wtX5wuUEotbmfCfNoWWG4xIz3cocE2y5ytNsOW49cBPLBwdR3UqE2IqITDGaGGBZEkoa24MTCl+go3D189RkzrFIPo=
@@ -10,14 +9,9 @@ env:
 services:
 - docker
 before_install:
-- sudo rm /usr/local/bin/docker-compose
-- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
-  -s`-`uname -m` > docker-compose
-- chmod +x docker-compose
-- sudo mv docker-compose /usr/local/bin
-
+- pip install docker-compose
+- docker-compose --version
 - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USER --password=$DOCKER_PASS
-- docker-compose build
 
 script:
 - docker-compose build
