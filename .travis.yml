@@ -22,6 +22,4 @@ script:
   - docker exec exemplofluxodocker_flapp_webapp_1 make test
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker push $TRAVIS_REPO_SLUG;  # scieloorg/nome_do_repositorio
-    fi
+  - docker push $TRAVIS_REPO_SLUG;
