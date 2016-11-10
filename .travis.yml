@@ -22,4 +22,5 @@ script:
   - docker exec exemplofluxodocker_flapp_webapp_1 make test
 
 after_success:
-  - docker push $TRAVIS_REPO_SLUG;
+  - docker tag exemplofluxodocker_flapp_webapp_1:latest $TRAVIS_REPO_SLUG
+  - docker push $TRAVIS_REPO_SLUG
