@@ -28,3 +28,5 @@ docker run \
     -e SECRET_KEY=example \
     -d scieloorg/exemplo_fluxo_docker
 ```
+
+OBS.: É necessário que o mongo seja iniciado antes da aplicação.
