@@ -19,12 +19,7 @@ script:
   - docker-compose build
   - docker-compose up -d
   - docker exec exemplofluxodocker_flapp_webapp_1 make test
-  - docker run -it --net host --pid host --cap-add audit_control \
-    -v /var/lib:/var/lib \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /usr/lib/systemd:/usr/lib/systemd \
-    -v /etc:/etc --label docker_bench_security \
-    docker/docker-bench-security
+  - docker run -it --net host --pid host --cap-add audit_control -v /var/lib:/var/lib -v /var/run/docker.sock:/var/run/docker.sock -v /usr/lib/systemd:/usr/lib/systemd -v /etc:/etc --label docker_bench_security docker/docker-bench-security
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
