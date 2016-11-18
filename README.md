@@ -3,7 +3,7 @@ Repositório destinado a exemplificar integração e entrega continua utilizando
 
 [![Build Status](https://travis-ci.org/scieloorg/exemplo_fluxo_docker.svg?branch=master)](https://travis-ci.org/scieloorg/exemplo_fluxo_docker)
 
-# Linha de comando para iniciar o container:
+# Linha de comando para iniciar os containers:
 
 ## Iniciando o mongo:
 
