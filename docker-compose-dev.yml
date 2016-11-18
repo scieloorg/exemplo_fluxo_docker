@@ -4,6 +4,7 @@ services:
 
     flapp_mongo:
         image: mongo
+        user: mongodb
         restart: always
         user: mongodb
         ports:

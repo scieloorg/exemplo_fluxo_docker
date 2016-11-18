@@ -6,13 +6,12 @@ services:
         image: mongo
         user: mongodb
         restart: always
-        user: mongodb
         ports:
           - "27017:27017"
         hostname: flapp-mongo
 
     flapp_webapp:
-        image: scieloorg/exemplo_fluxo_docker
+        build: .
         restart: always
         links:
             - flapp_mongo:flapp-mongo
