@@ -5,6 +5,7 @@ services:
     flapp_mongo:
         image: mongo
         restart: always
+        user: mongodb
         ports:
           - "27017:27017"
         hostname: flapp-mongo
