@@ -34,8 +34,9 @@ OBS.: É necessário que o mongo seja iniciado antes da aplicação.
 ## Equipe responsável por instalação, desenvolvimento e manutenção
 
 
-Jamil Atta Junior (Desenvolvimento) <jamil.atta@scielo.org> 
+Jamil Atta Junior (Desenvolvimento) <jamil.atta@scielo.org>
 
 Juan Funez (Desenvolvimento) <juan.funez@scielo.org>
 
 Rondineli Gama Saad (Infraestrutura) <rondineli.saad@gmail.com>
+
