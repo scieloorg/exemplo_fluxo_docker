@@ -40,3 +40,4 @@ Juan Funez (Desenvolvimento) <juan.funez@scielo.org>
 
 Rondineli Gama Saad (Infraestrutura) <rondineli.saad@gmail.com>
 
+
