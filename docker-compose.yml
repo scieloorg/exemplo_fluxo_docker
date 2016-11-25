@@ -24,3 +24,22 @@ services:
             - MONGODB_NAME=flapp_db_production
             - DEBUG_MODE=False
             - SECRET_KEY=example-production-secret
+
+    backup:
+        image: bwnyasse/docker-mongodb-worker
+        container_name: "backup_flapp_exemplo"
+        command: "/start.sh -d cron"
+        links:
+            - flapp_mongo:flapp-mongo
+        environment:
+          - CRON_SCHEDULE=* * * * * # Every minute ( Just for Example )
+          - MONGO_HOST=flapp_mongo
+          - MONGO_PORT=27017
+          - MONGO_DB_NAME=flapp_db_production
+          - MONGO_COLLECTION_NAME=post
+          - MONGO_BACKUP_FILENAME=backup_flapp_dump
+        depends_on:
+          - flapp_mongo
+        volumes:
+          - $PWD/data/:/backup/:rw
+          - /etc/localtime:/etc/localtime:ro
