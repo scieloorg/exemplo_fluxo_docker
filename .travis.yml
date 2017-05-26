@@ -26,5 +26,5 @@ after_success:
     make release_docker_push;
     docker login -u="$REGISTRY_SCIELO_USER" -p="$REGISTRY_SCIELO_PASS" $REGISTRY_SCIELO;
     make release_scielo_tag;
-    make release_docker_push;
+    make release_scielo_push;
     fi

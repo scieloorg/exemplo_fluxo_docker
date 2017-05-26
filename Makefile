@@ -76,8 +76,13 @@ release_scielo_tag:
 	@docker tag $(TRAVIS_REPO_SLUG):$(COMMIT) $(REGISTRY_SCIELO)/$(TRAVIS_REPO_SLUG):latest
 
 release_docker_push:
-	@echo "[Pushing] pushing image: $(TRAVIS_REPO_SLUG)"
+	@echo "[Pushing] pushing image to docker registry: $(TRAVIS_REPO_SLUG)"
 	@docker push $(TRAVIS_REPO_SLUG)
+	@echo "[Pushing] push $(TRAVIS_REPO_SLUG) done!"
+
+release_scielo_push:
+	@echo "[Pushing] pushing image to scielo registry: $(REGISTRY_SCIELO)/$(TRAVIS_REPO_SLUG):latest"
+	@docker push $(REGISTRY_SCIELO)/$(TRAVIS_REPO_SLUG):latest
 	@echo "[Pushing] push $(TRAVIS_REPO_SLUG) done!"
 
 test:
