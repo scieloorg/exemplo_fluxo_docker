@@ -25,7 +25,6 @@ after_success:
   docker tag $TRAVIS_REPO_SLUG:$COMMIT $TRAVIS_REPO_SLUG:travis-$TRAVIS_BUILD_NUMBER;
   docker tag $TRAVIS_REPO_SLUG:$COMMIT $TRAVIS_REPO_SLUG:latest;
   docker push $TRAVIS_REPO_SLUG;
-  # login no registry.scielo.org
   docker login -u="$REGISTRY_SCIELO_USER" -p="$REGISTRY_SCIELO_PASS" $REGISTRY_SCIELO;
   docker tag $TRAVIS_REPO_SLUG:$COMMIT $REGISTRY_SCIELO/$TRAVIS_REPO_SLUG:latest;
   fi
