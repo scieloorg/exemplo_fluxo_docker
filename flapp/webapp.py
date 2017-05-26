@@ -1,9 +1,8 @@
 # coding: utf-8
 from flask import Flask
 from flask import render_template, flash  # redirect,
-from flask.ext.mongoengine import MongoEngine
-# from flask.ext.mongoengine.wtf import model_form
-from flask.ext.wtf import Form
+from flask_mongoengine import MongoEngine
+from flask_wtf import FlaskForm
 from wtforms import validators, StringField, TextAreaField
 
 app = Flask(__name__)
@@ -25,7 +24,7 @@ class Post(db.Document):
 # Forms
 
 
-class PostForm(Form):
+class PostForm(FlaskForm):
     title = StringField(u'Titulo')
     content = TextAreaField(u'Conteúdo')
 
