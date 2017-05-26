@@ -10,6 +10,8 @@ services:
         ports:
           - "27017:27017"
         hostname: flapp-mongo
+        volumes:
+          - /etc/localtime:/etc/localtime:ro
 
     flapp_webapp:
         build:
@@ -28,3 +30,5 @@ services:
             - MONGODB_NAME=flapp_db_dev
             - DEBUG_MODE=True
             - SECRET_KEY=example
+        volumes:
+            - /etc/localtime:/etc/localtime:ro

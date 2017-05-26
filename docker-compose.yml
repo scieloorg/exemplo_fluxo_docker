@@ -6,7 +6,6 @@ services:
         image: mongo
         user: mongodb
         restart: always
-        user: mongodb
         ports:
           - "27017:27017"
         hostname: flapp-mongo
@@ -45,5 +44,5 @@ services:
         depends_on:
           - flapp_mongo
         volumes:
-          - $PWD/data/:/backup/:rw
+          - $PWD/data/:/backup/
           - /etc/localtime:/etc/localtime:ro
